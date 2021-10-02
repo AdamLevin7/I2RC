@@ -35,11 +35,13 @@ public class DriveTrain extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    
   }
 
   public void tankDrive(double leftSpeed, double rightSpeed) {
     _diffDrive.tankDrive(leftSpeed, rightSpeed);
-
-
+  }
+  public void arcadeDrive(double speed, double rotation) {
+    _diffDrive.tankDrive(speed, rotation);
   }
 }

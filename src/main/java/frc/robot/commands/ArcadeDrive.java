@@ -1,27 +1,25 @@
-// Copyright (c) FIRST and other WPILib contributors.
+package frc.robot.commands;
+
+    // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.DriveTrain;
 
-public class TankDrive extends CommandBase {
+public class ArcadeDrive extends CommandBase {
 
   private final DriveTrain _driveTrain;
-  private final Joystick _leftJoystick;
-  private final Joystick _rightJoystick;
+  private final Joystick _joystick;
   
   /** Creates a new TankDrive. */
-  public TankDrive(DriveTrain dt, Joystick lj, Joystick rj) {
+  public ArcadeDrive(DriveTrain dt,Joystick j) {
     // Use addRequirements() here to declare subsystem dependencies.
     _driveTrain = dt;
-    _leftJoystick = lj;
-    _rightJoystick = rj;
-
+    _joystick = j;
     addRequirements(_driveTrain);
   }
 
@@ -32,8 +30,8 @@ public class TankDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    _driveTrain.tankDrive(-0.8 * _leftJoystick.getRawAxis(Constants.JoystickAxis.YAxis),
-                          -0.8 * _rightJoystick.getRawAxis(Constants.JoystickAxis.YAxis));
+    _driveTrain.arcadeDrive(-0.8 * _joystick.getRawAxis(Constants.JoystickAxis.YAxis),
+                          0.8 * _joystick.getRawAxis(Constants.JoystickAxis.XAxis));
                           
   }
 
@@ -47,3 +45,5 @@ public class TankDrive extends CommandBase {
     return false;
   }
 }
+
+
