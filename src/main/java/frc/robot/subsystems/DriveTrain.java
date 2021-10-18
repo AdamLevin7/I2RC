@@ -26,6 +26,7 @@ public class DriveTrain extends SubsystemBase {
 
     _leftDriveTalon.setInverted(false);
     _righttDriveTalon.setInverted(false);
+    
 
     _diffDrive = new DifferentialDrive(_leftDriveTalon, _righttDriveTalon);
 
